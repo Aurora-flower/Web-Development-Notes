@@ -12,8 +12,6 @@
 git help [?command]
 ```
 
----
-
 ### log
 
 显示本地仓库的提交记录
@@ -23,8 +21,6 @@ git help [?command]
 git log [?options]
 ```
 
----
-
 ### init
 
 在所在的 **工作目录** 下初始化一个新的 Git 仓库
@@ -33,7 +29,6 @@ git log [?options]
 git init
 ```
 
----
 
 ### status
 
@@ -42,8 +37,6 @@ git init
 ```shell
 git status
 ```
-
----
 
 ### add
 
@@ -78,8 +71,6 @@ git stash drop <stash@{n}>
 git stash clear
 ```
 
----
-
 ### commit
 
 把暂存区的修改保存到本地仓库
@@ -91,8 +82,6 @@ git commit -m "commit message"
 # 提交当前暂存区修改，并覆盖上一次的本地提交
 git commit --amend -m "commit message"
 ```
-
----
 
 ### push
 
@@ -106,8 +95,6 @@ git push [remote] [branch]
 git push --set-upstream [remote] [branch]
 ```
 
----
-
 ### pull
 
 从远程仓库拉取修改到本地并合并
@@ -118,8 +105,6 @@ git pull [remote] [branch]
 # 拉取本地修改，并使用 rebase 策略合并远程修改
 git pull --rebase [remote] [branch]
 ```
-
----
 
 ### remote
 
@@ -142,8 +127,6 @@ git remote set-url [remote] [url]
 git remote rename [old] [new]
 ```
 
----
-
 ### branch
 
 列出所有分支，使用指定名称创建一个新分支
@@ -156,8 +139,6 @@ git branch
 git branch [name]
 ```
 
----
-
 ### fetch
 
 从远程仓库拉取修改到本地，但不合并到当前分支
@@ -165,8 +146,6 @@ git branch [name]
 ```shell
 git fetch [remote] [branch]
 ```
-
----
 
 ### checkout
 
@@ -179,8 +158,6 @@ git checkout [branch]
 git checkout [commit_hash]
 ```
 
----
-
 ### merge
 
 合并指定分支到当前分支
@@ -188,8 +165,6 @@ git checkout [commit_hash]
 ```shell
 git merge [branch]
 ```
-
----
 
 ### reset
 
@@ -205,8 +180,6 @@ git reset --soft [commit_hash]
 # 回退到前 N 个提交（默认使用 --mixed 参数，保留工作目录修改）
 git reset HEAD~[?num]
 ```
-
----
 
 ### rebase
 
