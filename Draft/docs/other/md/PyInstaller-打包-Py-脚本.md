@@ -17,7 +17,7 @@ tags: [Py 打包, PyInstaller, 扩展学习]
 
 1. **安装 PyInstaller**
 
-首先，确保已经安装了 `PyInstaller`。可以使用 `pip` 来安装它: 
+首先，确保已经安装了 `PyInstaller`。可以使用 `pip` 来安装它:
 
 ```shell
 pip install pyinstaller
@@ -29,7 +29,7 @@ pip install pyinstaller
 
 3. **使用 PyInstaller 打包**
 
-打开命令行（Windows 中是 `cmd` 或 PowerShell），然后导航到包含 `myscript.py` 文件的目录。执行以下命令来打包脚本: 
+打开命令行（Windows 中是 `cmd` 或 PowerShell），然后导航到包含 `myscript.py` 文件的目录。执行以下命令来打包脚本:
 
 ```shell
 pyinstaller --onefile myscript.py
@@ -53,19 +53,19 @@ dist/
 
 ### 可选的 PyInstaller 参数
 
-- **添加图标**: 可以为 `.exe` 文件添加一个图标，使用 `--icon` 选项。例如，假设有一个图标文件 `icon.ico`，可以这样做: 
+- **添加图标**: 可以为 `.exe` 文件添加一个图标，使用 `--icon` 选项。例如，假设有一个图标文件 `icon.ico`，可以这样做:
 
 ```shell
 pyinstaller --onefile --icon=icon.ico myscript.py
 ```
 
-- **不显示命令行窗口**: 如果的脚本是图形界面应用（例如使用 `tkinter` 或 `PyQt`），可以隐藏命令行窗口（在 Windows 中会显示一个控制台窗口）。使用 `--noconsole` 选项: 
+- **不显示命令行窗口**: 如果的脚本是图形界面应用（例如使用 `tkinter` 或 `PyQt`），可以隐藏命令行窗口（在 Windows 中会显示一个控制台窗口）。使用 `--noconsole` 选项:
 
 ```shell
 pyinstaller --onefile --noconsole myscript.py
 ```
 
-- **增加文件依赖**: 如果的脚本需要外部文件（如配置文件、数据文件等），可以使用 `--add-data` 选项来包含这些文件。比如: 
+- **增加文件依赖**: 如果的脚本需要外部文件（如配置文件、数据文件等），可以使用 `--add-data` 选项来包含这些文件。比如:
 
 ```shell
 pyinstaller --onefile --add-data "datafile.txt;." myscript.py
@@ -75,19 +75,19 @@ pyinstaller --onefile --add-data "datafile.txt;." myscript.py
 
 ### 常见问题和解决方案
 
-- **缺少模块**: 在运行打包后的 `.exe` 文件时，可能会遇到缺少模块的错误。可以通过安装缺失的模块，或者在打包时通过 `--hidden-import` 选项显式指定缺失的模块。例如: 
+- **缺少模块**: 在运行打包后的 `.exe` 文件时，可能会遇到缺少模块的错误。可以通过安装缺失的模块，或者在打包时通过 `--hidden-import` 选项显式指定缺失的模块。例如:
 
 ```shell
 pyinstaller --onefile --hidden-import=module_name myscript.py
 ```
 
-- **打包失败**: 如果遇到打包失败或异常，可以使用 `--debug` 选项来获取更多的调试信息: 
+- **打包失败**: 如果遇到打包失败或异常，可以使用 `--debug` 选项来获取更多的调试信息:
 
 ```shell
 pyinstaller --onefile --debug all myscript.py
 ```
 
-- **文件太大**: 生成的 `.exe` 文件可能比较大，因为 PyInstaller 会将 Python 解释器和所有依赖项打包到一起。如果文件过大，可以尝试使用 `--strip` 选项来减少文件大小: 
+- **文件太大**: 生成的 `.exe` 文件可能比较大，因为 PyInstaller 会将 Python 解释器和所有依赖项打包到一起。如果文件过大，可以尝试使用 `--strip` 选项来减少文件大小:
 
 ```shell
 pyinstaller --onefile --strip myscript.py

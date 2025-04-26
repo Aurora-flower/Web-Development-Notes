@@ -12,7 +12,7 @@
  */
 
 function checkXHRSupport() {
-  return typeof window?.XMLHttpRequest !== 'undefined';
+  return typeof window?.XMLHttpRequest !== "undefined";
 }
 
 /**
@@ -63,7 +63,7 @@ function getXHR() {
     return new XMLHttpRequest(); // xhttp
   } else {
     // ActiveXObject 是 IE 旧版特有API
-    return new window.ActiveXObject('Microsoft.XMLHTTP');
+    return new window.ActiveXObject("Microsoft.XMLHTTP");
   }
 }
 
@@ -75,7 +75,7 @@ export function loadResource(url, isAsync = false) {
       // console.log(this.responseText);
     }
   };
-  xhttp.open('GET', url, isAsync);
+  xhttp.open("GET", url, isAsync);
   // xhttp.setRequestHeader(
   //   'Content-type',
   //   'application/x-www-form-urlencoded'

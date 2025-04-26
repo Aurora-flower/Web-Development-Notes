@@ -17,18 +17,18 @@
 
 /* 单个导出 */
 exports.default = {
-  name: 'default'
+  name: "default"
 };
 
 /* 默认导出 */
 module.exports = {
-  name: 'modules'
+  name: "modules"
 };
 ```
 
 ```javascript
 /// ./demo.js
-const module_A = require('./modules/A');
+const module_A = require("./modules/A");
 console.log(module_A); // 输出结果: { name: 'modules' }
 ```
 
@@ -48,7 +48,7 @@ _Tip: 导入导出所需的部分即可。_
 
 ## 优缺点对比
 
-- **_CommonJS_**: 
+- **_CommonJS_**:
 
   - **优点**: 导出方式明确，适合需要全局导入的场景。
   - **缺点**: 灵活性较低，不适合仅导出部分功能。
@@ -73,10 +73,10 @@ export { name as default };
 
 ```javascript
 /// ./demo.js
-import * as B from './modules/B';
+import * as B from "./modules/B";
 
 // 默认导入
-import B, { name } from './modules/B';
+import B, { name } from "./modules/B";
 
 console.log(module_A); // 输出结果: { name: 'modules' }
 ```

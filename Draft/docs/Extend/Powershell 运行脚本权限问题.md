@@ -8,7 +8,7 @@
 
 ### **1. 错误现象**
 
-当尝试运行脚本（如 `.ps1` 文件或某些命令）时，可能看到以下错误: 
+当尝试运行脚本（如 `.ps1` 文件或某些命令）时，可能看到以下错误:
 
 ```powershell
 File XXX.ps1 cannot be loaded because running scripts is disabled on this system.
@@ -29,7 +29,7 @@ Windows 默认的 PowerShell 执行策略为 **`Restricted`**，禁止运行任�
 
 #### **(1) 临时更改执行策略（推荐）**
 
-以 **管理员身份** 运行 PowerShell，输入以下命令临时允许当前会话运行脚本: 
+以 **管理员身份** 运行 PowerShell，输入以下命令临时允许当前会话运行脚本:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
@@ -39,19 +39,19 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
 #### **(2) 永久更改执行策略**
 
-如果需要长期允许脚本运行，以管理员身份执行: 
+如果需要长期允许脚本运行，以管理员身份执行:
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope LocalMachine
 ```
 
-- **参数解释**: 
+- **参数解释**:
   - **`RemoteSigned`**: 允许运行本地脚本，但远程下载的脚本必须经过数字签名。
   - **`LocalMachine`**: 对所有用户生效。
 
 #### **(3) 单次绕过策略运行脚本**
 
-直接为某次脚本运行临时绕过策略（无需管理员权限）: 
+直接为某次脚本运行临时绕过策略（无需管理员权限）:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "的脚本路径.ps1"
@@ -59,7 +59,7 @@ powershell -ExecutionPolicy Bypass -File "的脚本路径.ps1"
 
 #### **(4) 检查当前执行策略**
 
-查看当前策略设置: 
+查看当前策略设置:
 
 ```powershell
 Get-ExecutionPolicy
@@ -69,7 +69,7 @@ Get-ExecutionPolicy
 
 ### **4. 权限不足的其他可能**
 
-如果上述方法无效，还需检查: 
+如果上述方法无效，还需检查:
 
 1. **脚本路径权限**: 确保有权限访问脚本所在目录。
 2. **文件签名**: 如果脚本来自外部，尝试右键点击文件 → **属性** → 勾选 **解除锁定**。

@@ -13,7 +13,7 @@ tags: [package.json, 扩展学习]
 
 - `preinstall`: 在 `npm install` 命令执行之前运行。
 - `prepare`: 在 `npm install` 命令执行之后，或者在发布包之前运行。它实际上是 `prepublish`, `prepare`, 和 `postpublish` 的组合。
-- `prepublish`: 在 `npm publish` 命令执行之前运行。注意📢：从 npm 7 开始，`prepublish` 被弃用，建议使用 `prepare`。
+- `prepublish`: 在 `npm publish` 命令执行之前运行。注意 📢：从 npm 7 开始，`prepublish` 被弃用，建议使用 `prepare`。
 - `prepublishOnly`: 在 `npm publish` 命令执行之前运行，并且不会在本地安装时触发。
 - `preuninstall`: 在 `npm uninstall` 命令执行之前运行。
 - `preversion`: 在 `npm version` 命令执行之前运行。

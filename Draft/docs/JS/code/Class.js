@@ -6,14 +6,14 @@ class AbstractClass {
    * @summary 抽象方法
    */
   abstractMethod() {
-    throw new Error('抽象方法不能调用');
+    throw new Error("抽象方法不能调用");
   }
 
   /**
    * @summary 抽象方法
    */
   concreteMethod() {
-    console.log('抽象类中的具体方法');
+    console.log("抽象类中的具体方法");
   }
 
   /**

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,10 +15,7 @@
   </head>
   <body>
     <div class="wrap">
-      <canvas
-        id="main-canvas"
-        width="500"
-        height="500"></canvas>
+      <canvas id="main-canvas" width="500" height="500"></canvas>
     </div>
     <img
       id="scream"
@@ -26,11 +23,12 @@
       style="background: #ccc"
       height="240"
       width="320"
-      alt="呐喊" />
+      alt="呐喊"
+    />
     <script>
-      let canvas = document.getElementById('main-canvas'); // 选择器-找到 Canvas 画布元素
-      let ctx = canvas.getContext('2d'); // 创建绘图对象
-      ctx.fillStyle = '#1f2d3d'; // 设置图形对象的填充
+      let canvas = document.getElementById("main-canvas"); // 选择器-找到 Canvas 画布元素
+      let ctx = canvas.getContext("2d"); // 创建绘图对象
+      ctx.fillStyle = "#1f2d3d"; // 设置图形对象的填充
 
       /**
        * @name ctx.fillRect 画布上绘制一个矩形
@@ -76,8 +74,8 @@
 
       // 创建渐变（线性）
       let grd = ctx.createLinearGradient(0, 0, 200, 0);
-      grd.addColorStop(0, 'red');
-      grd.addColorStop(1, 'white');
+      grd.addColorStop(0, "red");
+      grd.addColorStop(1, "white");
 
       // 填充渐变色
       ctx.fillStyle = grd; // 使用渐变，需要将 fillStyle 或 strokeStyle 属性设置为渐变
@@ -90,26 +88,22 @@
        * fillText(text, x, y) 画布上绘制（填充）文本
        * strokeText(text, x, y) 画布上绘制文本（无填充）
        * */
-      ctx.font = '30px Arial';
-      ctx.fillText('hello world', 275, 275);
+      ctx.font = "30px Arial";
+      ctx.fillText("hello world", 275, 275);
 
-      ctx.strokeText('hello world', 250, 100); //无填充
+      ctx.strokeText("hello world", 250, 100); //无填充
 
-      ctx.font = '30px Comic Sans Ms';
-      ctx.fillStyle = 'blue';
-      ctx.textAlign = 'center'; // 文本居中
-      ctx.fillText(
-        'hello world',
-        canvas.width / 2,
-        canvas.height / 2
-      );
+      ctx.font = "30px Comic Sans Ms";
+      ctx.fillStyle = "blue";
+      ctx.textAlign = "center"; // 文本居中
+      ctx.fillText("hello world", canvas.width / 2, canvas.height / 2);
 
       window.onload = function () {
         // 在此处编写需要在页面加载完成后执行的代码
-        let img = document.getElementById('scream');
+        let img = document.getElementById("scream");
         ctx.drawImage(img, 0, 0);
 
-        console.log('hello');
+        console.log("hello");
       };
     </script>
   </body>

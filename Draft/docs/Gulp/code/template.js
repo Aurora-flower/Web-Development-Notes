@@ -14,14 +14,14 @@
  * 它们通常会导致难以调试的微妙错误，例如忘记从任务中返回流。
  */
 // const { rollup } = require('rollup');
-const through2 = require('through2');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const { Observable } = require('rxjs'); // rxjs 是 JavaScript 的响应式编程库，提供 Observable 等核心异步处理能力。
-const { exec } = require('node:child_process');
-const { EventEmitter } = require('node:events');
-const { src, dest, watch, series, parallel } = require('gulp');
+const through2 = require("through2");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
+const rename = require("gulp-rename");
+const { Observable } = require("rxjs"); // rxjs 是 JavaScript 的响应式编程库，提供 Observable 等核心异步处理能力。
+const { exec } = require("node:child_process");
+const { EventEmitter } = require("node:events");
+const { src, dest, watch, series, parallel } = require("gulp");
 
 /* ***** ***** ***** ***** Gulp 任务回调书写示例 ***** ***** ***** ***** */
 
@@ -49,14 +49,14 @@ function promiseCallback() {
 
 /* 示例4: 流式处理 */
 function streamCallback() {
-  return src('*.js').pipe(dest('output'));
+  return src("*.js").pipe(dest("output"));
 }
 
 /* 示例5: 事件触发器 */
 function eventEmitterCallback() {
   const emitter = new EventEmitter();
   // Emit has to happen async otherwise gulp isn't listening yet
-  setTimeout(() => emitter.emit('finish'), 250);
+  setTimeout(() => emitter.emit("finish"), 250);
   return emitter;
 }
 
@@ -65,13 +65,13 @@ function childProcessCallback() {
   /**
    * @summary 运行 date 命令获取当前系统时间 (Unix/Linux/macOS 生效，Windows 需改为 `date /T`)
    */
-  const subProcess = exec('date', error => {
+  const subProcess = exec("date", (error) => {
     if (error) throw new Error(`执行失败: ${error.message}`);
   });
 
   // 监听进程输出 (可选)
-  subProcess.stdout.on('data', data => {
-    console.log('DATE 输出:', data.toString());
+  subProcess.stdout.on("data", (data) => {
+    console.log("DATE 输出:", data.toString());
   });
 
   /* 进程管理：Gulp 会监控子进程状态，自动处理任务完成/错误通知 */
@@ -106,11 +106,11 @@ function observableCallback() {
  * - `空模式`不包含任何内容，并且在仅处理文件元数据时很有用。
  */
 function filePipeStream() {
-  return src('source/*.js')
+  return src("source/*.js")
     .pipe(babel())
-    .pipe(src('vendor/*.js'))
+    .pipe(src("vendor/*.js"))
     .pipe(uglify())
-    .pipe(dest('output/'));
+    .pipe(dest("output/"));
 }
 
 /**
@@ -122,13 +122,13 @@ function filePipeStream() {
  * 使用场景: 使用同一管道创建未缩小和缩小的文件非常有用
  */
 function splitPhaseOutput() {
-  return src('source/*.js')
+  return src("source/*.js")
     .pipe(babel())
-    .pipe(src('vendor/*.js'))
-    .pipe(dest('output/'))
+    .pipe(src("vendor/*.js"))
+    .pipe(dest("output/"))
     .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(dest('output/'));
+    .pipe(rename({ extname: ".min.js" }))
+    .pipe(dest("output/"));
 }
 
 /* ***** ***** ***** ***** Gulp 任务组合 - `series()` 和 `parallel()` 可以嵌套到任意深度 ***** ***** ***** ***** */
@@ -139,22 +139,14 @@ function splitPhaseOutput() {
  * - 当运行组合操作时，每个任务将在每次引用时执行。
  * - 当使用 `series()` 组合任务时，出现错误将结束组合并且不会执行进一步的任务。
  */
-const order = series(
-  legacyCallback,
-  asyncCallback,
-  promiseCallback
-);
+const order = series(legacyCallback, asyncCallback, promiseCallback);
 
 /**
  * @summary 示例2: 并行组合
  * @description
  * 当使用 `parallel()` 组合任务时，错误将结束组合，但其他并行任务可能会完成，也可能不会完成。
  */
-const pairing = parallel(
-  legacyCallback,
-  asyncCallback,
-  promiseCallback
-);
+const pairing = parallel(legacyCallback, asyncCallback, promiseCallback);
 
 /* ***** ***** ***** ***** Gulp 内联插件 ***** ***** ***** ***** */
 
@@ -163,7 +155,7 @@ const pairing = parallel(
  */
 function inlinePlugin() {
   return (
-    src('source/*.js')
+    src("source/*.js")
       // Instead of using gulp-uglify, you can create an inline plugin
       .pipe(
         through2.obj(function (file, _, cb) {
@@ -174,7 +166,7 @@ function inlinePlugin() {
           cb(null, file);
         })
       )
-      .pipe(dest('output/'))
+      .pipe(dest("output/"))
   );
 }
 
@@ -198,10 +190,10 @@ function inlinePlugin() {
  */
 function watchCallback() {
   watch(
-    'source/*.js',
+    "source/*.js",
     {
       /* 触发类型 */
-      events: 'change',
+      events: "change",
       /* 忽略初始执行 */
       ignoreInitial: false,
       /* 延迟时间 - 文件更改后，观察程序任务将在指定时间（毫秒）的延迟过后才会运行 */

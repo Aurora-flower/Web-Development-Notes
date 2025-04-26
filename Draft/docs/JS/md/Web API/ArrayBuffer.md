@@ -7,6 +7,7 @@
 可以通过其他视图（**views** - 如 `Uint8Array`）来操作 ArrayBuffer 中的数据。
 
 ---
+
 ### 应用场景
 
 - **处理文件上传和下载**:
@@ -47,14 +48,14 @@ console.log(buffer.byteLength);
 #### 常见的 `ArrayBufferView` 类型
 
 - `TypedArray` - 它们是表示二进制数据的数组，可以方便地读取和写入数据。
-    - `Uint8Array`（无符号 8 位整数）
-    - `Uint16Array`（无符号 16 位整数）
-    - `Uint32Array`（无符号 32 位整数）
-    - `Int8Array`（有符号 8 位整数）
-    - `Int16Array`（有符号 16 位整数）
-    - `Int32Array`（有符号 32 位整数）
-    - `Float32Array`（32 位浮动点数）
-    - `Float64Array`（64 位浮动点数）
+  - `Uint8Array`（无符号 8 位整数）
+  - `Uint16Array`（无符号 16 位整数）
+  - `Uint32Array`（无符号 32 位整数）
+  - `Int8Array`（有符号 8 位整数）
+  - `Int16Array`（有符号 16 位整数）
+  - `Int32Array`（有符号 32 位整数）
+  - `Float32Array`（32 位浮动点数）
+  - `Float64Array`（64 位浮动点数）
 - `DataView` - 提供更底层、灵活的访问方法，可以按照任意类型读取和写入数据。
 
 这些视图对象允许以不同的方式（如按字节、按 16 位、按 32 位等）访问 ArrayBuffer 中的数据。

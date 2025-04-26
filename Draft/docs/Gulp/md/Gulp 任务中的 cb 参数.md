@@ -13,7 +13,7 @@
    Gulp 任务默认是异步执行的，必须通过某种方式告诉 Gulp "任务已完成"。`cb` 回调函数就是其中一种通知机制。
 
 2. **强制信号**  
-   调用 `cb()` 相当于向 Gulp 发送信号: 
+   调用 `cb()` 相当于向 Gulp 发送信号:
 
    ```javascript
    function task(cb) {
@@ -32,7 +32,7 @@
 
 ```javascript
 function syncTask(cb) {
-  console.log('这是一个同步任务');
+  console.log("这是一个同步任务");
   cb(); // 必须调用
 }
 ```
@@ -44,7 +44,7 @@ function syncTask(cb) {
 ```javascript
 function asyncTask(cb) {
   setTimeout(() => {
-    console.log('异步操作完成');
+    console.log("异步操作完成");
     cb(); // ⬅️ 在异步操作完成后调用
   }, 1000);
 }
@@ -56,7 +56,7 @@ function asyncTask(cb) {
 
 ```javascript
 function errorTask(cb) {
-  fs.readFile('不存在的文件.txt', err => {
+  fs.readFile("不存在的文件.txt", (err) => {
     if (err) {
       cb(err); // ⬅️ 传递错误对象，Gulp 会捕获错误
       return;
@@ -70,7 +70,7 @@ function errorTask(cb) {
 
 ### 三、为什么需要回调机制？
 
-Gulp 的底层原理决定了它需要明确的完成信号: 
+Gulp 的底层原理决定了它需要明确的完成信号:
 
 | 任务类型     | 完成信号方式       |
 | ------------ | ------------------ |
@@ -94,7 +94,7 @@ function clean(cb) {
 
 // 如果存在异步操作需要这样写
 function asyncClean(cb) {
-  fs.rmdir('dist', { recursive: true }, err => {
+  fs.rmdir("dist", { recursive: true }, (err) => {
     if (err) throw err;
     cb(); // ⬅️ 在回调中调用
   });
@@ -105,16 +105,16 @@ function asyncClean(cb) {
 
 ### 五、现代 Gulp 的更优写法
 
-建议优先使用 **async/await** 或 **Promise** 替代回调模式: 
+建议优先使用 **async/await** 或 **Promise** 替代回调模式:
 
 ```javascript
-const { promisify } = require('util');
-const fs = require('fs');
+const { promisify } = require("util");
+const fs = require("fs");
 const rm = promisify(fs.rm);
 
 // 更清晰的异步写法
 async function modernClean() {
-  await rm('dist', { recursive: true, force: true });
+  await rm("dist", { recursive: true, force: true });
 }
 
 exports.clean = modernClean;
@@ -124,7 +124,7 @@ exports.clean = modernClean;
 
 ### 六、为什么示例代码中需要 `cb`？
 
-在默认的 `series()` 组合中: 
+在默认的 `series()` 组合中:
 
 ```javascript
 exports.default = series(clean, build);

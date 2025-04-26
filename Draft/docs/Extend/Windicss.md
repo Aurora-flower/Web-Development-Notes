@@ -6,23 +6,23 @@ Windicss 中文文档: <https://cn.windicss.org/guide/>
 
 1. 安装
 
-    ```shell
-    npm install -D windicss vite-plugin-windicss
-    ```
+   ```shell
+   npm install -D windicss vite-plugin-windicss
+   ```
 
 2. 配置
 
-    ```TypeScript
-    // vite.config.ts
-    import WindiCSS from 'vite-plugin-windicss'
-   
+   ```TypeScript
+   // vite.config.ts
+   import WindiCSS from 'vite-plugin-windicss'
+
    export default defineConfig({
-    plugins: [
-     vue(),
-     WindiCSS(),
-     ],
-    })
-   
-    // main.ts
-    import 'windi.css' // 根据实际路径引入
-    ```
+   plugins: [
+    vue(),
+    WindiCSS(),
+    ],
+   })
+
+   // main.ts
+   import 'windi.css' // 根据实际路径引入
+   ```
